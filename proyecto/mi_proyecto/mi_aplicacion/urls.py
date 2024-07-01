@@ -19,5 +19,9 @@ urlpatterns = [
     path('perro_color/', views.perro_color, name='perro_color'),
     path('registrarse/', views.registrarse, name='registrarse'),
 
-    
+    path('list', views.user_list, name='user_list'),
+    path('new/', views.user_create, name='user_create'),
+    path('edit/<int:pk>/', views.user_update, name='user_update'),
+    path('delete/<int:pk>/', views.user_delete, name='user_delete'),
+
 ]

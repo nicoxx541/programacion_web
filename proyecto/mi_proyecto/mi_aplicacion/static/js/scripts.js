@@ -1,29 +1,73 @@
 // Iniciar seccion 
-function validateForm() {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('error');
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
         // Validar si el campo de correo electrónico está vacío o no es válido
         if (email.trim() === "" || !validateEmail(email)) {
-            document.getElementById("error").innerHTML = "Por favor, introduce un correo electrónico válido.";
+            errorMessage.textContent = "nicolashernandezdelarosa@gmail.com";
+            errorMessage.style.color = "red";
             return false;
         }
 
         // Validar si el campo de contraseña está vacío
         if (password.trim() === "") {
-            document.getElementById("error").innerHTML = "Por favor, introduce tu contraseña.";
+            errorMessage.textContent = "Asuna541";
+            errorMessage.style.color = "red";
             return false;
         }
 
-        // Si ambos campos son válidos, devuelve true para enviar el formulario
+        // Limpiar el mensaje de error si ambos campos son válidos
+        errorMessage.textContent = "";
+        // Aquí podrías añadir la lógica para enviar el formulario si es necesario
         return true;
-    }
+    });
+});
 
-    // Función para validar el formato del correo electrónico
-    function validateEmail(email) {
-        var re = /\S+@\S+\.\S+/;
-        return re.test(email);
-    }
+// Función para validar el formato del correo electrónico
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+
+// Función para validar el formato del correo electrónico
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const loginMessage = document.getElementById('loginMessage');
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Aquí puedes realizar una validación simple (simulada) para verificar si el usuario está registrado
+        if (email === "usuario@example.com" && password === "contraseña123") {
+            loginMessage.textContent = "Inicio de sesión exitoso. Usuario registrado.";
+            loginMessage.style.color = "green";
+        } else {
+            loginMessage.textContent = "Credenciales incorrectas. Usuario no registrado.";
+            loginMessage.style.color = "red";
+        }
+    });
+});
+
+    
 // Registrarse
 function validateForm() {
     var username = document.getElementById("username").value;
